@@ -19,9 +19,7 @@ func TestChristmasLights(t *testing.T){
 		got := TurnOn(x1, y1, x2, y2)
 		want := 25
 
-		if got != want{
-			t.Errorf("want '%d' but got '%d' ", want, got)
-		}
+		assertError(t, got, want)
 	})
 
 	t.Run("turn off lights", func(t *testing.T) {
@@ -29,9 +27,7 @@ func TestChristmasLights(t *testing.T){
 		got := TurnOff(x1, y1, x2, y2)
 		want := 0
 
-		if got != want{
-			t.Errorf("want '%d' but got '%d' ", want, got)
-		}
+		assertError(t, got, want)
 	})
 
 	t.Run("multiple instruction", func(t *testing.T){
@@ -43,8 +39,14 @@ func TestChristmasLights(t *testing.T){
 
 		want := 9750
 
-		if got != want{
-			t.Errorf("want '%d' but got '%d' ", want, got)
-		}
+		assertError(t, got, want)
 	})
+}
+
+func assertError(tb testing.TB, got, want int){
+	tb.Helper()
+
+	if got != want {
+		tb.Errorf("want '%d' but got '%d' ", want, got)
+	}
 }
