@@ -36,10 +36,10 @@ func TestChristmasLights(t *testing.T){
 
 	t.Run("multiple instruction", func(t *testing.T){
 
-		got := TurnOn(0,0,100,100)
-		got += TurnOn(90,100,50,10)
-		got += TurnOff(30,0,20,50)
-		got += Toggle(25,0,30,50)
+		got := TurnOn(0,0,99,99)
+		got = TurnOn(89,99,50,10)
+		got = TurnOff(29,0,20,49)
+		got = Toggle(25,0,29,49)
 
 		want := 9750
 

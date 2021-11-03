@@ -6,9 +6,27 @@ var openLights = 0
 
 func TurnOn(x1, y1, x2, y2 int) int{
 
-	for i := x1; i <= x2; i++ {
-		for j := y1; j <= y2; j++ {
-			if !lights[i][j] {
+	maxX := x1
+	minX := x2
+	
+	if maxX < minX{
+		tempX := maxX
+		maxX = minX
+		minX = tempX
+	}
+
+	maxY := y1
+	minY := y2
+
+	if maxY < minY{
+		tempY := maxY
+		maxY = minY
+		minY = tempY
+	}
+
+	for i := minX; i <= maxX; i++ {
+		for j := minY; j <= maxY; j++ {
+			if !lights[i][j]{
 				openLights++
 				lights[i][j] = true
 			}
@@ -19,8 +37,26 @@ func TurnOn(x1, y1, x2, y2 int) int{
 
 func TurnOff(x1, y1, x2, y2 int) int{
 
-	for i := x1; i <= x2; i++ {
-		for j := y1; j <= y2; j++ {
+	maxX := x1
+	minX := x2
+
+	if maxX < minX{
+		tempX := maxX
+		maxX = minX
+		minX = tempX
+	}
+
+	maxY := y1
+	minY := y2
+
+	if maxY < minY{
+		tempY := maxY
+		maxY = minY
+		minY = tempY
+	}
+
+	for i := minX; i <= maxX; i++ {
+		for j := minY; j <= maxY; j++ {
 			if lights[i][j] {
 				openLights--
 				lights[i][j] = false
@@ -32,8 +68,26 @@ func TurnOff(x1, y1, x2, y2 int) int{
 
 func Toggle(x1, y1, x2, y2 int) int{
 
-	for i := x1; i <= x2; i++ {
-		for j := y1; j <= y2; j++ {
+	maxX := x1
+	minX := x2
+
+	if maxX < minX{
+		tempX := maxX
+		maxX = minX
+		minX = tempX
+	}
+
+	maxY := y1
+	minY := y2
+
+	if maxY < minY{
+		tempY := maxY
+		maxY = minY
+		minY = tempY
+	}
+
+	for i := minX; i <= maxX; i++ {
+		for j := minY; j <= maxY; j++ {
 			
 			if lights[i][j] {
 				openLights--
