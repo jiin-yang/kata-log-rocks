@@ -9,7 +9,7 @@ func TestGameArea(t *testing.T){
 	want := "X"
 
 	if got != want {
-		t.Errorf("want '%q' but got '%q' ", want, got)
+		t.Errorf("want '%s' but got '%s' ", want, got)
 	}
 
 }
