@@ -4,12 +4,14 @@ import "testing"
 
 func TestGameArea(t *testing.T){
 
-	Move(2)
-	got := Area[1]
-	want := "X"
+	t.Run("first move", func(t *testing.T) {
+		Move(2, "X")
+		got := Area[1]
+		want := "X"
 
-	if got != want {
-		t.Errorf("want '%s' but got '%s' ", want, got)
-	}
+		if got != want {
+			t.Errorf("want '%s' but got '%s' ", want, got)
+		}
+	})
 
 }
