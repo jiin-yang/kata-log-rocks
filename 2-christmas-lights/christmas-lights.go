@@ -29,3 +29,20 @@ func TurnOff(x1, y1, x2, y2 int) int{
 	}
 	return openLights
 }
+
+func Toggle(x1, y1, x2, y2 int) int{
+
+	for i := x1; i <= x2; i++ {
+		for j := y1; j <= y2; j++ {
+			
+			if lights[i][j] {
+				openLights--
+				lights[i][j] = false
+			}else {
+				openLights++
+				lights[i][j] = true
+			}
+		}
+	}
+	return openLights
+}
