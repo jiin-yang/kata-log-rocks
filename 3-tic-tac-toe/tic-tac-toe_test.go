@@ -9,9 +9,7 @@ func TestGameArea(t *testing.T){
 		got := Area[1]
 		want := "X"
 
-		if got != want {
-			t.Errorf("want '%s' but got '%s' ", want, got)
-		}
+		assertError(t, got, want)
 	})
 
 	t.Run("move to the same place", func(t *testing.T) {
@@ -19,9 +17,37 @@ func TestGameArea(t *testing.T){
 		got := Area[1]
 		want := "X"
 
-		if got != want {
-			t.Errorf("want '%s' but got '%s' ", want, got)
-		}
+		assertError(t, got, want)
 	})
 
+}
+
+func TestWinCheck(t *testing.T){
+	
+	moves := [9]int{1,4,2,5,3,6,7,8,9}
+
+	for i := 0; i < 9; i++ {
+		t.Run("same line check", func(t *testing.T) {
+			if i % 2 == 0{
+				Move(moves[i], "X")
+			}else {
+				Move(moves[i], "O")
+			}
+			
+			if i == 4{
+				got := WinCheck()
+				want := "X"
+
+				assertError(t, got, want)
+			}
+		})
+	}
+}
+
+func assertError(tb testing.TB, got, want string){
+	tb.Helper()
+
+	if got != want {
+		tb.Errorf("want '%s' but got '%s' ", want, got)
+	}
 }
